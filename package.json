@@ -1,0 +1,22 @@
+{
+  "name": "yajb-js",
+  "version": "0.1.0",
+  "description": "JavaScript lib for Yet Anther JavaScript Bridge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muxi-Studio/YAJB-JavaScript.git"
+  },
+  "keywords": [
+    "jsbridge"
+  ],
+  "author": "Muxi FE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Muxi-Studio/YAJB-JavaScript/issues"
+  },
+  "homepage": "https://github.com/Muxi-Studio/YAJB-JavaScript#readme"
+}
