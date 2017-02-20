@@ -1,5 +1,13 @@
 'use strict'
 
-var event = {}
+var Event = function(){}
 
-module.exports = event
+Event.prototype.on = function () {
+
+}
+
+Event.prototype.trigger = function () {
+
+}
+
+export default Event

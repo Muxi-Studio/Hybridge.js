@@ -44,4 +44,4 @@ YAJB.prototype.trigger = function() {
 }
 
 
-module.exports = YAJB
+export default YAJB
