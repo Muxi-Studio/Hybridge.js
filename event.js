@@ -9,7 +9,7 @@ Event.prototype.on = function(event, fn) {
   (listeners[event] || (listeners[event] = [])).push(fn)
 }
 
-Event.prototype.emit: function(event) {
+Event.prototype.emit = function(event) {
   event = '$' + event
   let cbs = listeners[event]
   if (cbs) {
@@ -21,7 +21,7 @@ Event.prototype.emit: function(event) {
   }
 }
 
-Event.prototype.off: function(event, fn) {
+Event.prototype.off =  function(event, fn) {
   event = '$' + event
   if (!arguments.length) {
     listeners = {}
