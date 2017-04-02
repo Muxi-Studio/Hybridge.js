@@ -1,8 +1,8 @@
 'use strict'
 
 var YAJB = function(){
-	this.messageQueue= []
 	this.eventQueue = []
+	this.counter = 1
 	var options
 	this.isAndroid = false
 	this.isiOS = false
@@ -41,18 +41,23 @@ YAJB.prototype.isMobile = function() {
 
 YAJB.prototype._send = function(option) {
 	if (this.isAndroid) {
-		window.alert(JSON.stringify(option))
+		// window.alert(JSON.stringify(option))
+		window.location = "hybrid://" + option.event + ':' + option.id + '/'+ option.data
 	}else if (this.isiOS) {
 		// window.postMessage
 	}
 }
 
 YAJB.prototype.checkQueue = function(option){
-	this.eventQueue.forEach(function(item){
-		if(item.event === option.event){
-			item.callback(option.data)
-		}
+	// this.eventQueue.forEach(function(item){
+	// 	if(item.id === option.id){
+	// 		item.callback(option.data)
+	// 	}
+	// })
+	var event = this.eventQueue.find(function(item){
+		return item.id === option.id
 	})
+	event.callback(option.data)
 }
 
 // YAJB.prototype.on = function(event, callback) {
@@ -68,12 +73,14 @@ YAJB.prototype.send = function(event, data) {
 	return new Promise(function(resolve, reject){
 		that.eventQueue.push({
 			event: event + "Resolved",
+			id : that.counter,
 			callback: function(value){
 				console.log("resolve")
 				resolve(value)
 			}
 		})
-		that._send({event:event, data:data});
+		that._send({event:event,id:that.counter,data:data});
+		that.counter++
 	})
 }
 
